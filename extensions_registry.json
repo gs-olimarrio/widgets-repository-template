@@ -34,6 +34,16 @@
       },
       "type": "countries-angular"
     },
+        {
+      "title": "Greeting Card",
+      "type": "my_first_widget_greeting",
+      "description": "A simple greeting card widget",
+      "category": "custom",
+      "source": {
+        "path": "widgets/greeting",
+        "entry": "index.html"
+      }
+    },
     {
       "title": "Countries Html",
       "description": "A widget built with HTML and the Widget SDK.",
