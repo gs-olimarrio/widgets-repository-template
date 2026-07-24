@@ -34,16 +34,6 @@
       },
       "type": "countries-angular"
     },
-        {
-      "title": "Greeting Card",
-      "type": "my_first_widget_greeting",
-      "description": "A simple greeting card widget",
-      "category": "custom",
-      "source": {
-        "path": "widgets/greeting",
-        "entry": "index.html"
-      }
-    },
     {
       "title": "Countries Html",
       "description": "A widget built with HTML and the Widget SDK.",
@@ -179,6 +169,53 @@
         "description": "A widget built with Vue and the Widget SDK."
       },
       "type": "countries-vue"
+    },
+    {
+      "title": "Greeting",
+      "description": "A customisable greeting card widget with an animated gradient background.",
+      "category": "Demo",
+      "source": {
+        "path": "widgets/greeting",
+        "entry": "index.html"
+      },
+      "configuration": {
+        "properties": [
+          {
+            "name": "title",
+            "type": "text",
+            "label": "Title",
+            "defaultValue": "Hello, Community!",
+            "rules": {
+              "required": true
+            }
+          },
+          {
+            "name": "subtitle",
+            "type": "text",
+            "label": "Subtitle",
+            "defaultValue": "This is your first custom widget."
+          },
+          {
+            "name": "gradientStart",
+            "type": "text",
+            "label": "Gradient Start Colour",
+            "defaultValue": "#667eea"
+          },
+          {
+            "name": "gradientEnd",
+            "type": "text",
+            "label": "Gradient End Colour",
+            "defaultValue": "#4facfe"
+          }
+        ]
+      },
+      "defaultConfig": {
+        "title": "Hello, Community!",
+        "subtitle": "This is your first custom widget.",
+        "gradientStart": "#667eea",
+        "gradientEnd": "#4facfe"
+      },
+      "type": "greeting"
     }
   ],
   "stylesheets": [
