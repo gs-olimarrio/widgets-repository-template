@@ -1,5 +1,6 @@
 {
   "title": "Greeting",
+  "type": "my_first_widget_greeting",
   "description": "A customisable greeting card widget with an animated gradient background.",
   "category": "Demo",
   "source": {

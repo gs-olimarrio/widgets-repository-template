@@ -172,10 +172,11 @@
     },
     {
       "title": "Greeting",
+      "type": "my_first_widget_greeting",
       "description": "A customisable greeting card widget with an animated gradient background.",
       "category": "Demo",
       "source": {
-        "path": "widgets/my_first_widget_greeting",
+        "path": "widgets/greeting",
         "entry": "index.html"
       },
       "configuration": {
@@ -214,8 +215,7 @@
         "subtitle": "This is your first custom widget.",
         "gradientStart": "#F7941D",
         "gradientEnd": "#EF4B36"
-      },
-      "type": "my_first_widget_greeting"
+      }
     }
   ],
   "stylesheets": [

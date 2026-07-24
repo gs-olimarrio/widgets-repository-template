@@ -351,8 +351,11 @@ for widget_dir in "$WIDGETS_DIR"/*; do
       continue
     fi
 
+    widget_type=$(jq -r '.type // empty' "$widget_config")
+    [ -z "$widget_type" ] && widget_type="$widget_name"
+
     widget=$(jq \
-      --arg type "$widget_name" \
+      --arg type "$widget_type" \
       --arg category "$category" \
       --arg repo_path "$repo_path" \
       --arg entry "$src_entry" \
@@ -362,8 +365,11 @@ for widget_dir in "$WIDGETS_DIR"/*; do
       | if $image_src_resolved != "" then . + {"imageSrc": $image_src_resolved} | del(.imageName) else . end
       ' "$widget_config")
   else
+    widget_type=$(jq -r '.type // empty' "$widget_config")
+    [ -z "$widget_type" ] && widget_type="$widget_name"
+
     widget=$(jq \
-      --arg type "$widget_name" \
+      --arg type "$widget_type" \
       --arg category "$category" \
       --arg image_src_resolved "$image_src_resolved" \
       '
