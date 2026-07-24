@@ -199,21 +199,21 @@
             "name": "gradientStart",
             "type": "text",
             "label": "Gradient Start Colour",
-            "defaultValue": "#667eea"
+            "defaultValue": "#F7941D"
           },
           {
             "name": "gradientEnd",
             "type": "text",
             "label": "Gradient End Colour",
-            "defaultValue": "#4facfe"
+            "defaultValue": "#EF4B36"
           }
         ]
       },
       "defaultConfig": {
         "title": "Hello, Community!",
         "subtitle": "This is your first custom widget.",
-        "gradientStart": "#667eea",
-        "gradientEnd": "#4facfe"
+        "gradientStart": "#F7941D",
+        "gradientEnd": "#EF4B36"
       },
       "type": "greeting"
     }

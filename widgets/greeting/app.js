@@ -9,8 +9,8 @@ export async function init(sdk) {
     if (title) title.textContent = props.title || "Hello, Community!";
     if (subtitle) subtitle.textContent = props.subtitle || "This is your first custom widget.";
     if (card) {
-      var start = props.gradientStart || "#667eea";
-      var end = props.gradientEnd || "#4facfe";
+      var start = props.gradientStart || "#F7941D";
+      var end = props.gradientEnd || "#EF4B36";
       card.style.background = "linear-gradient(135deg, " + start + ", " + end + ")";
     }
   }
