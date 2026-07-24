@@ -11,7 +11,8 @@ export async function init(sdk) {
     if (card) {
       var start = props.gradientStart || "#F7941D";
       var end = props.gradientEnd || "#EF4B36";
-      card.style.background = "linear-gradient(135deg, " + start + ", " + end + ")";
+      card.style.background = "linear-gradient(135deg, " + start + ", " + end + ", " + start + ", " + end + ")";
+      card.style.backgroundSize = "400% 400%";
     }
   }
 

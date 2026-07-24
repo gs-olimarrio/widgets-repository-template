@@ -1,8 +1,10 @@
 <style>
   @keyframes gradientFlow {
-    0%   { background-position: 0% 50%; }
-    50%  { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0%   { background-position: 0% 0%; }
+    25%  { background-position: 100% 0%; }
+    50%  { background-position: 100% 100%; }
+    75%  { background-position: 0% 100%; }
+    100% { background-position: 0% 0%; }
   }
 
   .greeting-card {
@@ -11,9 +13,9 @@
     border-radius: 8px;
     border: 1px solid var(--config--main-color-border, #e5e7eb);
     text-align: center;
-    background: linear-gradient(135deg, #F7941D, #EF4B36);
-    background-size: 300% 300%;
-    animation: gradientFlow 8s ease infinite;
+    background: linear-gradient(135deg, #F7941D, #EF4B36, #F7941D, #EF4B36);
+    background-size: 400% 400%;
+    animation: gradientFlow 6s ease infinite;
   }
 
   .greeting-card h2 {
