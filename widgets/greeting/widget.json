@@ -1,0 +1,45 @@
+{
+  "title": "Greeting",
+  "description": "A customisable greeting card widget with an animated gradient background.",
+  "category": "Demo",
+  "content": {
+    "entry": "index.html"
+  },
+  "configuration": {
+    "properties": [
+      {
+        "name": "title",
+        "type": "text",
+        "label": "Title",
+        "defaultValue": "Hello, Community!",
+        "rules": {
+          "required": true
+        }
+      },
+      {
+        "name": "subtitle",
+        "type": "text",
+        "label": "Subtitle",
+        "defaultValue": "This is your first custom widget."
+      },
+      {
+        "name": "gradientStart",
+        "type": "text",
+        "label": "Gradient Start Colour",
+        "defaultValue": "#667eea"
+      },
+      {
+        "name": "gradientEnd",
+        "type": "text",
+        "label": "Gradient End Colour",
+        "defaultValue": "#4facfe"
+      }
+    ]
+  },
+  "defaultConfig": {
+    "title": "Hello, Community!",
+    "subtitle": "This is your first custom widget.",
+    "gradientStart": "#667eea",
+    "gradientEnd": "#4facfe"
+  }
+}

@@ -11,7 +11,6 @@
     border-radius: 8px;
     border: 1px solid var(--config--main-color-border, #e5e7eb);
     text-align: center;
-    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe, #43e97b);
     background-size: 300% 300%;
     animation: gradientFlow 8s ease infinite;
   }
@@ -29,7 +28,36 @@
   }
 </style>
 
-<div class="greeting-card">
-  <h2 class="title">Hello, Community!</h2>
-  <p class="subtitle">This is your first custom widget.</p>
+<div class="greeting-card" id="greeting-card">
+  <h2 class="title" id="greeting-title">Hello, Community!</h2>
+  <p class="subtitle" id="greeting-subtitle">This is your first custom widget.</p>
 </div>
+
+<script>
+  var DEFAULTS = {
+    title: "Hello, Community!",
+    subtitle: "This is your first custom widget.",
+    gradientStart: "#667eea",
+    gradientEnd: "#4facfe",
+  };
+
+  function applyProps(props) {
+    var title = props.title || DEFAULTS.title;
+    var subtitle = props.subtitle || DEFAULTS.subtitle;
+    var start = props.gradientStart || DEFAULTS.gradientStart;
+    var end = props.gradientEnd || DEFAULTS.gradientEnd;
+
+    document.getElementById("greeting-title").textContent = title;
+    document.getElementById("greeting-subtitle").textContent = subtitle;
+    document.getElementById("greeting-card").style.background =
+      "linear-gradient(135deg, " + start + ", " + end + ")";
+  }
+
+  applyProps(DEFAULTS);
+
+  if (window.WidgetServiceSDK) {
+    var sdk = new window.WidgetServiceSDK();
+    applyProps(sdk.getProps());
+    sdk.on("propsChanged", applyProps);
+  }
+</script>
