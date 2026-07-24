@@ -2,7 +2,8 @@
   "title": "Greeting",
   "description": "A customisable greeting card widget with an animated gradient background.",
   "category": "Demo",
-  "content": {
+  "source": {
+    "path": ".",
     "entry": "index.html"
   },
   "configuration": {
