@@ -5,8 +5,9 @@ function launchConfetti() {
   var canvas = document.getElementById('confetti-canvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  var container = canvas.parentElement || document.body;
+  canvas.width = container.offsetWidth || 400;
+  canvas.height = container.offsetHeight || 500;
 
   var particles = [];
   for (var i = 0; i < 120; i++) {
