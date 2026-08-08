@@ -1,0 +1,294 @@
+<meta charset="utf-8">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .checklist {
+    --accent: #E60000;
+    font-family: var(--config--main-font-family, Arial, sans-serif);
+    background: #ffffff;
+    padding: 20px;
+    color: #1A1A1A;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+
+  .heading {
+    font-size: 17px;
+    font-weight: 700;
+    color: #1A1A1A;
+    line-height: 1.2;
+    flex: 1;
+  }
+
+  .progress-label {
+    font-size: 11px;
+    color: #888;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .subheading {
+    font-size: 12px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    margin-top: 4px;
+  }
+
+  .progress-bar {
+    height: 3px;
+    background: #EBEBEB;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+
+  .steps { display: flex; flex-direction: column; }
+
+  .step { display: flex; gap: 12px; }
+
+  .step-spine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 28px;
+  }
+
+  .step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid #DEDEDE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #AAAAAA;
+    background: #fff;
+    flex-shrink: 0;
+    transition: all 0.25s ease;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step.active .step-num {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .step.done .step-num {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+    font-size: 13px;
+  }
+
+  .step-line {
+    width: 2px;
+    flex: 1;
+    min-height: 12px;
+    background: #EBEBEB;
+    margin: 3px 0;
+  }
+
+  .step:last-child .step-line { display: none; }
+
+  .step-body { flex: 1; padding-bottom: 16px; min-width: 0; }
+  .step:last-child .step-body { padding-bottom: 0; }
+
+  .step-card {
+    border: 1px solid #EBEBEB;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #FAFAFA;
+  }
+
+  .step.active .step-card { background: #fff; border-color: #D8D8D8; }
+  .step.done .step-card { background: #fff; }
+
+  .step-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+  }
+
+  .step-icon { color: #555; flex-shrink: 0; display: flex; }
+
+  .step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1A1A1A;
+  }
+
+  .step-desc {
+    font-size: 11.5px;
+    color: #666;
+    line-height: 1.45;
+    margin-bottom: 10px;
+  }
+
+  .step-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+  .btn-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 13px;
+    background: #1A1A1A;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-cta:hover { background: #333; }
+
+  .btn-done {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    background: #fff;
+    color: #555;
+    border: 1.5px solid #CFCFCF;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+
+  .btn-done:hover { border-color: var(--accent); color: var(--accent); }
+
+  .step.done .btn-done {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: #fff5f5;
+  }
+</style>
+
+<div class="checklist" id="checklist">
+  <div class="eyebrow" id="eyebrow">GET STARTED</div>
+  <div class="header-row">
+    <div class="heading" id="heading">Welcome! Let's get you started</div>
+    <div class="progress-label" id="progress-label">0 of 3 done</div>
+  </div>
+  <div class="subheading" id="subheading">Three quick steps to find your feet, meet people, and get recognised.</div>
+  <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+  <div class="steps">
+
+    <div class="step active" id="step-1">
+      <div class="step-spine">
+        <div class="step-num" id="step-1-num">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-card">
+          <div class="step-title-row">
+            <span class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+            </span>
+            <div class="step-title">Make your first post</div>
+          </div>
+          <div class="step-desc">Introduce yourself or ask your first question. It's the fastest way to get a warm welcome and useful answers.</div>
+          <div class="step-actions">
+            <a class="btn-cta" id="step-1-btn" href="#" target="_blank">Start a post <svg style="display:inline;vertical-align:middle;margin-left:4px" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <button class="btn-done" id="step-1-mark">+ Mark as done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="step-2">
+      <div class="step-spine">
+        <div class="step-num" id="step-2-num">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-card">
+          <div class="step-title-row">
+            <span class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <div class="step-title">Join a group</div>
+          </div>
+          <div class="step-desc">Sign up to a group to meet peers and hear about events relevant to your interests.</div>
+          <div class="step-actions">
+            <a class="btn-cta" id="step-2-btn" href="#" target="_blank">Browse groups <svg style="display:inline;vertical-align:middle;margin-left:4px" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <button class="btn-done" id="step-2-mark">+ Mark as done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step" id="step-3">
+      <div class="step-spine">
+        <div class="step-num" id="step-3-num">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-card">
+          <div class="step-title-row">
+            <span class="step-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </span>
+            <div class="step-title">Earn a Best Answer</div>
+          </div>
+          <div class="step-desc">When a reply solves a question it can be marked as Best Answer, earning badges and recognition.</div>
+          <div class="step-actions">
+            <a class="btn-cta" id="step-3-btn" href="#" target="_blank">See an example <svg style="display:inline;vertical-align:middle;margin-left:4px" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <button class="btn-done" id="step-3-mark">+ Mark as done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>

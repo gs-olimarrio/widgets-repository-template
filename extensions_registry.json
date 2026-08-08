@@ -216,6 +216,81 @@
         "gradientStart": "#F7941D",
         "gradientEnd": "#EF4B36"
       }
+    },
+    {
+      "title": "Onboarding Checklist",
+      "type": "onboarding_checklist",
+      "description": "A 3-step onboarding checklist for new community members.",
+      "category": "Onboarding",
+      "source": {
+        "path": "widgets/onboarding-checklist",
+        "entry": "index.html"
+      },
+      "configuration": {
+        "properties": [
+          {
+            "name": "eyebrowLabel",
+            "type": "text",
+            "label": "Eyebrow Label",
+            "defaultValue": "GET STARTED"
+          },
+          {
+            "name": "heading",
+            "type": "text",
+            "label": "Heading",
+            "defaultValue": "Welcome! Let's get you started",
+            "rules": {
+              "required": true
+            }
+          },
+          {
+            "name": "subheading",
+            "type": "text",
+            "label": "Subheading",
+            "defaultValue": "Three quick steps to find your feet, meet people, and get recognised."
+          },
+          {
+            "name": "accentColor",
+            "type": "text",
+            "label": "Accent Colour (hex)",
+            "defaultValue": "#E60000"
+          },
+          {
+            "name": "step1Url",
+            "type": "text",
+            "label": "Step 1 — Action URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "step2Url",
+            "type": "text",
+            "label": "Step 2 — Action URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "step3Url",
+            "type": "text",
+            "label": "Step 3 — Action URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "showMarkAsDone",
+            "type": "checkbox",
+            "label": "Show 'Mark as done' toggles",
+            "defaultValue": true
+          }
+        ]
+      },
+      "defaultConfig": {
+        "eyebrowLabel": "GET STARTED",
+        "heading": "Welcome! Let's get you started",
+        "subheading": "Three quick steps to find your feet, meet people, and get recognised.",
+        "accentColor": "#E60000",
+        "step1Url": "",
+        "step2Url": "",
+        "step3Url": "",
+        "showMarkAsDone": true
+      }
     }
   ],
   "stylesheets": [
