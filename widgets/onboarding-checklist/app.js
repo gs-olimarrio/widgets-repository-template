@@ -139,8 +139,12 @@ export async function init(sdk) {
         });
         if (res.ok) {
           var user = await res.json();
-          var groups = user.membergroupids || user.memberGroupIds || user.memberGroupIDs || [];
-          if (groups.length > 0 && autoDone.indexOf(2) === -1) {
+          var memberGroups = user.membergroupids || user.memberGroupIds || [];
+          var userGroup = user.usergroupid || user.userGroupId;
+          var hasGroup = (Array.isArray(memberGroups) && memberGroups.length > 0)
+                      || (memberGroups && typeof memberGroups === 'string' && memberGroups !== '')
+                      || (userGroup && userGroup !== '' && userGroup !== '0' && userGroup !== 0);
+          if (hasGroup && autoDone.indexOf(2) === -1) {
             autoDone.push(2);
           }
         }
