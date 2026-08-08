@@ -54,7 +54,7 @@
       },
       {
         "name": "showMarkAsDone",
-        "type": "checkbox",
+        "type": "boolean",
         "label": "Show 'Mark as done' toggles",
         "defaultValue": true
       }
