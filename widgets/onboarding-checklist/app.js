@@ -134,8 +134,9 @@ export async function init(sdk) {
     try {
       var token = (window.inSidedData && (window.inSidedData.token || window.inSidedData.jwt))
                || userData.token;
-      if (token) {
-        var res = await fetch('https://api2-eu-west-1.insided.com/user/me', {
+      var userId = userData.id || userData.userId;
+      if (token && userId) {
+        var res = await fetch('https://api2-eu-west-1.insided.com/user/' + userId, {
           headers: { 'Authorization': 'Bearer ' + token }
         });
         if (res.ok) {
