@@ -121,7 +121,7 @@ export async function init(sdk) {
     var userData = (window.inSidedData && window.inSidedData.user) || {};
 
     // Step 1: has posted a topic
-    if (Number(userData.topicCount) > 0 && autoDone.indexOf(1) === -1) {
+    if (Number(userData.topicsCount) > 0 && autoDone.indexOf(1) === -1) {
       autoDone.push(1);
     }
 
@@ -130,14 +130,12 @@ export async function init(sdk) {
       autoDone.push(3);
     }
 
-    // Step 2: has joined a group — check via user API
+    // Step 2: has joined a group — check via user API using session cookie
     try {
-      var token = (window.inSidedData && (window.inSidedData.token || window.inSidedData.jwt))
-               || userData.token;
-      var userId = userData.id || userData.userId;
-      if (token && userId) {
+      var userId = userData.userid || userData.id;
+      if (userId) {
         var res = await fetch('https://api2-eu-west-1.insided.com/user/' + userId, {
-          headers: { 'Authorization': 'Bearer ' + token }
+          credentials: 'include'
         });
         if (res.ok) {
           var user = await res.json();
