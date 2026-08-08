@@ -48,9 +48,12 @@ export async function init(sdk) {
   updateSteps();
 
   function applyProps(props) {
-    var accent = props.accentColor || '#E60000';
+    var accent = props.accentColor || '#EF4B36';
     var checklist = sdk.$('#checklist');
-    if (checklist) checklist.style.setProperty('--accent', accent);
+    if (checklist) {
+      checklist.style.setProperty('--accent', accent);
+      checklist.style.setProperty('--accent-end', accent);
+    }
 
     var eyebrow    = sdk.$('#eyebrow');
     var heading    = sdk.$('#heading');
