@@ -5,9 +5,9 @@ function launchConfetti() {
   var canvas = document.getElementById('confetti-canvas');
   if (!canvas) return;
   var ctx = canvas.getContext('2d');
-  var container = canvas.parentElement || document.body;
-  canvas.width = container.offsetWidth || 400;
-  canvas.height = container.offsetHeight || 500;
+  var checklist = document.getElementById('checklist');
+  canvas.width = (checklist ? checklist.offsetWidth : 0) || 400;
+  canvas.height = (checklist ? checklist.offsetHeight : 0) || 500;
 
   var particles = [];
   for (var i = 0; i < 120; i++) {
@@ -66,6 +66,7 @@ export async function init(sdk) {
   await sdk.whenReady();
 
   var done = getDone();
+  var alreadyCelebrated = false;
 
   function updateSteps() {
     var count = done.length;
@@ -87,11 +88,14 @@ export async function init(sdk) {
     if (fill) fill.style.width = (count / 3 * 100) + '%';
     if (label) label.textContent = count + ' van 3 klaar';
 
-    var banner = sdk.$('#completion-banner');
-    var wasComplete = banner && banner.classList.contains('visible');
     var isComplete = count === 3;
+    var banner = document.getElementById('completion-banner');
     if (banner) banner.classList.toggle('visible', isComplete);
-    if (isComplete && !wasComplete) launchConfetti();
+    if (isComplete && !alreadyCelebrated) {
+      alreadyCelebrated = true;
+      launchConfetti();
+    }
+    if (!isComplete) alreadyCelebrated = false;
   }
 
   [1, 2, 3].forEach(function (n) {
@@ -107,12 +111,10 @@ export async function init(sdk) {
 
   updateSteps();
 
-  var closeBtn = sdk.$('#btn-close');
+  var closeBtn = document.getElementById('btn-close');
   if (closeBtn) closeBtn.addEventListener('click', function () {
-    var checklist = sdk.$('#checklist');
+    var checklist = document.getElementById('checklist');
     if (checklist) checklist.style.display = 'none';
-    var canvas = document.getElementById('confetti-canvas');
-    if (canvas) canvas.style.display = 'none';
   });
 
   function applyProps(props) {
