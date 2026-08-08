@@ -25,13 +25,13 @@ export async function init(sdk) {
         step.classList.toggle('done', isDone);
         step.classList.toggle('active', isActive);
       }
-      if (mark) mark.textContent = isDone ? '✓ Done' : '+ Mark as done';
+      if (mark) mark.textContent = isDone ? '✓ Klaar' : '+ Markeer als klaar';
       if (num) num.textContent = isDone ? '✓' : String(n);
     });
     var fill = sdk.$('#progress-fill');
     var label = sdk.$('#progress-label');
     if (fill) fill.style.width = (count / 3 * 100) + '%';
-    if (label) label.textContent = count + ' of 3 done';
+    if (label) label.textContent = count + ' van 3 klaar';
   }
 
   [1, 2, 3].forEach(function (n) {
@@ -58,9 +58,9 @@ export async function init(sdk) {
     var eyebrow    = sdk.$('#eyebrow');
     var heading    = sdk.$('#heading');
     var subheading = sdk.$('#subheading');
-    if (eyebrow)    eyebrow.textContent    = props.eyebrowLabel || 'GET STARTED';
-    if (heading)    heading.textContent    = props.heading      || "Welcome! Let's get you started";
-    if (subheading) subheading.textContent = props.subheading   || 'Three quick steps to find your feet, meet people, and get recognised.';
+    if (eyebrow)    eyebrow.textContent    = props.eyebrowLabel || 'AAN DE SLAG';
+    if (heading)    heading.textContent    = props.heading      || 'Welkom! Laten we beginnen';
+    if (subheading) subheading.textContent = props.subheading   || 'Drie snelle stappen om je weg te vinden, mensen te ontmoeten en erkend te worden.';
 
     [1, 2, 3].forEach(function (n) {
       var btn = sdk.$('#step-' + n + '-btn');
