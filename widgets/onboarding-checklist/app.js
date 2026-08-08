@@ -12,8 +12,15 @@ function saveDone(done) {
 export async function init(sdk) {
   await sdk.whenReady();
 
-  var done = getDone();
+  var done = getDone();   // manually marked steps
+  var autoDone = [];      // auto-detected from platform data
   var alreadyCelebrated = false;
+
+  function combined() {
+    var all = done.slice();
+    autoDone.forEach(function (n) { if (all.indexOf(n) === -1) all.push(n); });
+    return all;
+  }
 
   function launchConfetti() {
     var canvas = sdk.$('#confetti-canvas');
@@ -69,20 +76,31 @@ export async function init(sdk) {
   }
 
   function updateSteps() {
-    var count = done.length;
+    var all = combined();
+    var count = all.length;
+
     [1, 2, 3].forEach(function (n) {
       var step = sdk.$('#step-' + n);
       var mark = sdk.$('#step-' + n + '-mark');
       var num  = sdk.$('#step-' + n + '-num');
-      var isDone = done.indexOf(n) > -1;
-      var isActive = !isDone && (n === 1 || done.indexOf(n - 1) > -1);
+      var isAuto   = autoDone.indexOf(n) > -1;
+      var isDone   = all.indexOf(n) > -1;
+      var isActive = !isDone && (n === 1 || all.indexOf(n - 1) > -1);
       if (step) {
         step.classList.toggle('done', isDone);
         step.classList.toggle('active', isActive);
       }
-      if (mark) mark.textContent = isDone ? '✓ Klaar' : '+ Markeer als klaar';
       if (num) num.textContent = isDone ? '✓' : String(n);
+      if (mark) {
+        // hide manual button for auto-completed steps — already done
+        if (isAuto) {
+          mark.style.display = 'none';
+        } else {
+          mark.textContent = done.indexOf(n) > -1 ? '✓ Klaar' : '+ Markeer als klaar';
+        }
+      }
     });
+
     var fill = sdk.$('#progress-fill');
     var label = sdk.$('#progress-label');
     if (fill) fill.style.width = (count / 3 * 100) + '%';
@@ -98,9 +116,48 @@ export async function init(sdk) {
     if (!isComplete) alreadyCelebrated = false;
   }
 
+  // Auto-detect completion from platform data
+  async function checkPlatformData() {
+    var userData = (window.inSidedData && window.inSidedData.user) || {};
+
+    // Step 1: has posted a topic
+    if (Number(userData.topicCount) > 0 && autoDone.indexOf(1) === -1) {
+      autoDone.push(1);
+    }
+
+    // Step 3: has a solved/best answer
+    if (Number(userData.solvedCount) > 0 && autoDone.indexOf(3) === -1) {
+      autoDone.push(3);
+    }
+
+    // Step 2: has joined a group — check via user API
+    try {
+      var token = (window.inSidedData && (window.inSidedData.token || window.inSidedData.jwt))
+               || userData.token;
+      if (token) {
+        var res = await fetch('https://api2-eu-west-1.insided.com/user/me', {
+          headers: { 'Authorization': 'Bearer ' + token }
+        });
+        if (res.ok) {
+          var user = await res.json();
+          var groups = user.membergroupids || user.memberGroupIds || user.memberGroupIDs || [];
+          if (groups.length > 0 && autoDone.indexOf(2) === -1) {
+            autoDone.push(2);
+          }
+        }
+      }
+    } catch (e) {
+      // API unavailable — fall back to manual marking
+    }
+
+    updateSteps();
+  }
+
+  // Manual mark-as-done (only for non-auto steps)
   [1, 2, 3].forEach(function (n) {
     var mark = sdk.$('#step-' + n + '-mark');
     if (mark) mark.addEventListener('click', function () {
+      if (autoDone.indexOf(n) > -1) return; // auto-completed, ignore
       var idx = done.indexOf(n);
       if (idx > -1) done.splice(idx, 1);
       else done.push(n);
@@ -116,6 +173,7 @@ export async function init(sdk) {
   });
 
   updateSteps();
+  checkPlatformData();
 
   function applyProps(props) {
     var accent = props.accentColor || '#EF4B36';
@@ -141,7 +199,8 @@ export async function init(sdk) {
     var showMark = props.showMarkAsDone !== false && props.showMarkAsDone !== 'false';
     [1, 2, 3].forEach(function (n) {
       var mark = sdk.$('#step-' + n + '-mark');
-      if (mark) mark.style.display = showMark ? '' : 'none';
+      // only show manual button if showMark is on AND step isn't auto-completed
+      if (mark) mark.style.display = (showMark && autoDone.indexOf(n) === -1) ? '' : 'none';
     });
   }
 
