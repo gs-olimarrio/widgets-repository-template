@@ -1,6 +1,337 @@
 {
   "widgets": [
     {
+      "title": "Community Topic Cards",
+      "type": "community_topic_cards",
+      "description": "A grid of topic category cards with image, title, badge and link. Configurable cards-per-row and show-all behaviour.",
+      "category": "Community Topics",
+      "source": {
+        "path": "widgets/community-topic-cards",
+        "entry": "index.html"
+      },
+      "configuration": {
+        "properties": [
+          {
+            "name": "cardsPerRow",
+            "type": "select",
+            "label": "Cards per row",
+            "defaultValue": "4",
+            "options": [
+              {
+                "label": "2",
+                "value": "2"
+              },
+              {
+                "label": "3",
+                "value": "3"
+              },
+              {
+                "label": "4",
+                "value": "4"
+              }
+            ]
+          },
+          {
+            "name": "maxRows",
+            "type": "number",
+            "label": "Max rows before 'Toon alles'",
+            "defaultValue": 1
+          },
+          {
+            "name": "showAllLabel",
+            "type": "text",
+            "label": "Show all button label",
+            "defaultValue": "Toon alles"
+          },
+          {
+            "name": "card1Image",
+            "type": "text",
+            "label": "Card 1 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card1Title",
+            "type": "text",
+            "label": "Card 1 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card1Meta",
+            "type": "text",
+            "label": "Card 1 — Meta (e.g. '9825 Topics')",
+            "defaultValue": ""
+          },
+          {
+            "name": "card1Badge",
+            "type": "text",
+            "label": "Card 1 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card1Url",
+            "type": "text",
+            "label": "Card 1 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card2Image",
+            "type": "text",
+            "label": "Card 2 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card2Title",
+            "type": "text",
+            "label": "Card 2 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card2Meta",
+            "type": "text",
+            "label": "Card 2 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card2Badge",
+            "type": "text",
+            "label": "Card 2 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card2Url",
+            "type": "text",
+            "label": "Card 2 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card3Image",
+            "type": "text",
+            "label": "Card 3 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card3Title",
+            "type": "text",
+            "label": "Card 3 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card3Meta",
+            "type": "text",
+            "label": "Card 3 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card3Badge",
+            "type": "text",
+            "label": "Card 3 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card3Url",
+            "type": "text",
+            "label": "Card 3 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card4Image",
+            "type": "text",
+            "label": "Card 4 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card4Title",
+            "type": "text",
+            "label": "Card 4 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card4Meta",
+            "type": "text",
+            "label": "Card 4 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card4Badge",
+            "type": "text",
+            "label": "Card 4 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card4Url",
+            "type": "text",
+            "label": "Card 4 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card5Image",
+            "type": "text",
+            "label": "Card 5 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card5Title",
+            "type": "text",
+            "label": "Card 5 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card5Meta",
+            "type": "text",
+            "label": "Card 5 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card5Badge",
+            "type": "text",
+            "label": "Card 5 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card5Url",
+            "type": "text",
+            "label": "Card 5 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card6Image",
+            "type": "text",
+            "label": "Card 6 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card6Title",
+            "type": "text",
+            "label": "Card 6 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card6Meta",
+            "type": "text",
+            "label": "Card 6 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card6Badge",
+            "type": "text",
+            "label": "Card 6 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card6Url",
+            "type": "text",
+            "label": "Card 6 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card7Image",
+            "type": "text",
+            "label": "Card 7 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card7Title",
+            "type": "text",
+            "label": "Card 7 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card7Meta",
+            "type": "text",
+            "label": "Card 7 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card7Badge",
+            "type": "text",
+            "label": "Card 7 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card7Url",
+            "type": "text",
+            "label": "Card 7 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card8Image",
+            "type": "text",
+            "label": "Card 8 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card8Title",
+            "type": "text",
+            "label": "Card 8 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card8Meta",
+            "type": "text",
+            "label": "Card 8 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card8Badge",
+            "type": "text",
+            "label": "Card 8 — Badge Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card8Url",
+            "type": "text",
+            "label": "Card 8 — Link URL",
+            "defaultValue": ""
+          }
+        ]
+      },
+      "defaultConfig": {
+        "cardsPerRow": "4",
+        "maxRows": 1,
+        "showAllLabel": "Toon alles",
+        "card1Image": "",
+        "card1Title": "",
+        "card1Meta": "",
+        "card1Badge": "",
+        "card1Url": "",
+        "card2Image": "",
+        "card2Title": "",
+        "card2Meta": "",
+        "card2Badge": "",
+        "card2Url": "",
+        "card3Image": "",
+        "card3Title": "",
+        "card3Meta": "",
+        "card3Badge": "",
+        "card3Url": "",
+        "card4Image": "",
+        "card4Title": "",
+        "card4Meta": "",
+        "card4Badge": "",
+        "card4Url": "",
+        "card5Image": "",
+        "card5Title": "",
+        "card5Meta": "",
+        "card5Badge": "",
+        "card5Url": "",
+        "card6Image": "",
+        "card6Title": "",
+        "card6Meta": "",
+        "card6Badge": "",
+        "card6Url": "",
+        "card7Image": "",
+        "card7Title": "",
+        "card7Meta": "",
+        "card7Badge": "",
+        "card7Url": "",
+        "card8Image": "",
+        "card8Title": "",
+        "card8Meta": "",
+        "card8Badge": "",
+        "card8Url": ""
+      }
+    },
+    {
       "title": "Countries Angular",
       "description": "A widget built with Angular and the Widget SDK.",
       "category": "Demo",
