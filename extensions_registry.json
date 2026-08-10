@@ -28,14 +28,36 @@
               {
                 "label": "4",
                 "value": "4"
+              },
+              {
+                "label": "5",
+                "value": "5"
               }
             ]
           },
           {
             "name": "maxRows",
-            "type": "number",
+            "type": "select",
             "label": "Max rows before 'Toon alles'",
-            "defaultValue": 1
+            "defaultValue": "1",
+            "options": [
+              {
+                "label": "1",
+                "value": "1"
+              },
+              {
+                "label": "2",
+                "value": "2"
+              },
+              {
+                "label": "3",
+                "value": "3"
+              },
+              {
+                "label": "4",
+                "value": "4"
+              }
+            ]
           },
           {
             "name": "showAllLabel",
@@ -58,13 +80,13 @@
           {
             "name": "card1Meta",
             "type": "text",
-            "label": "Card 1 — Meta (e.g. '9825 Topics')",
+            "label": "Card 1 — Meta",
             "defaultValue": ""
           },
           {
             "name": "card1Badge",
             "type": "text",
-            "label": "Card 1 — Badge Image URL",
+            "label": "Card 1 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -94,7 +116,7 @@
           {
             "name": "card2Badge",
             "type": "text",
-            "label": "Card 2 — Badge Image URL",
+            "label": "Card 2 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -124,7 +146,7 @@
           {
             "name": "card3Badge",
             "type": "text",
-            "label": "Card 3 — Badge Image URL",
+            "label": "Card 3 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -154,7 +176,7 @@
           {
             "name": "card4Badge",
             "type": "text",
-            "label": "Card 4 — Badge Image URL",
+            "label": "Card 4 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -184,7 +206,7 @@
           {
             "name": "card5Badge",
             "type": "text",
-            "label": "Card 5 — Badge Image URL",
+            "label": "Card 5 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -214,7 +236,7 @@
           {
             "name": "card6Badge",
             "type": "text",
-            "label": "Card 6 — Badge Image URL",
+            "label": "Card 6 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -244,7 +266,7 @@
           {
             "name": "card7Badge",
             "type": "text",
-            "label": "Card 7 — Badge Image URL",
+            "label": "Card 7 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -274,7 +296,7 @@
           {
             "name": "card8Badge",
             "type": "text",
-            "label": "Card 8 — Badge Image URL",
+            "label": "Card 8 — Badge URL",
             "defaultValue": ""
           },
           {
@@ -282,12 +304,252 @@
             "type": "text",
             "label": "Card 8 — Link URL",
             "defaultValue": ""
+          },
+          {
+            "name": "card9Image",
+            "type": "text",
+            "label": "Card 9 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card9Title",
+            "type": "text",
+            "label": "Card 9 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card9Meta",
+            "type": "text",
+            "label": "Card 9 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card9Badge",
+            "type": "text",
+            "label": "Card 9 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card9Url",
+            "type": "text",
+            "label": "Card 9 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card10Image",
+            "type": "text",
+            "label": "Card 10 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card10Title",
+            "type": "text",
+            "label": "Card 10 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card10Meta",
+            "type": "text",
+            "label": "Card 10 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card10Badge",
+            "type": "text",
+            "label": "Card 10 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card10Url",
+            "type": "text",
+            "label": "Card 10 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card11Image",
+            "type": "text",
+            "label": "Card 11 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card11Title",
+            "type": "text",
+            "label": "Card 11 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card11Meta",
+            "type": "text",
+            "label": "Card 11 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card11Badge",
+            "type": "text",
+            "label": "Card 11 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card11Url",
+            "type": "text",
+            "label": "Card 11 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card12Image",
+            "type": "text",
+            "label": "Card 12 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card12Title",
+            "type": "text",
+            "label": "Card 12 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card12Meta",
+            "type": "text",
+            "label": "Card 12 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card12Badge",
+            "type": "text",
+            "label": "Card 12 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card12Url",
+            "type": "text",
+            "label": "Card 12 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card13Image",
+            "type": "text",
+            "label": "Card 13 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card13Title",
+            "type": "text",
+            "label": "Card 13 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card13Meta",
+            "type": "text",
+            "label": "Card 13 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card13Badge",
+            "type": "text",
+            "label": "Card 13 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card13Url",
+            "type": "text",
+            "label": "Card 13 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card14Image",
+            "type": "text",
+            "label": "Card 14 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card14Title",
+            "type": "text",
+            "label": "Card 14 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card14Meta",
+            "type": "text",
+            "label": "Card 14 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card14Badge",
+            "type": "text",
+            "label": "Card 14 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card14Url",
+            "type": "text",
+            "label": "Card 14 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card15Image",
+            "type": "text",
+            "label": "Card 15 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card15Title",
+            "type": "text",
+            "label": "Card 15 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card15Meta",
+            "type": "text",
+            "label": "Card 15 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card15Badge",
+            "type": "text",
+            "label": "Card 15 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card15Url",
+            "type": "text",
+            "label": "Card 15 — Link URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card16Image",
+            "type": "text",
+            "label": "Card 16 — Image URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card16Title",
+            "type": "text",
+            "label": "Card 16 — Title",
+            "defaultValue": ""
+          },
+          {
+            "name": "card16Meta",
+            "type": "text",
+            "label": "Card 16 — Meta",
+            "defaultValue": ""
+          },
+          {
+            "name": "card16Badge",
+            "type": "text",
+            "label": "Card 16 — Badge URL",
+            "defaultValue": ""
+          },
+          {
+            "name": "card16Url",
+            "type": "text",
+            "label": "Card 16 — Link URL",
+            "defaultValue": ""
           }
         ]
       },
       "defaultConfig": {
         "cardsPerRow": "4",
-        "maxRows": 1,
+        "maxRows": "1",
         "showAllLabel": "Toon alles",
         "card1Image": "",
         "card1Title": "",
@@ -328,7 +590,47 @@
         "card8Title": "",
         "card8Meta": "",
         "card8Badge": "",
-        "card8Url": ""
+        "card8Url": "",
+        "card9Image": "",
+        "card9Title": "",
+        "card9Meta": "",
+        "card9Badge": "",
+        "card9Url": "",
+        "card10Image": "",
+        "card10Title": "",
+        "card10Meta": "",
+        "card10Badge": "",
+        "card10Url": "",
+        "card11Image": "",
+        "card11Title": "",
+        "card11Meta": "",
+        "card11Badge": "",
+        "card11Url": "",
+        "card12Image": "",
+        "card12Title": "",
+        "card12Meta": "",
+        "card12Badge": "",
+        "card12Url": "",
+        "card13Image": "",
+        "card13Title": "",
+        "card13Meta": "",
+        "card13Badge": "",
+        "card13Url": "",
+        "card14Image": "",
+        "card14Title": "",
+        "card14Meta": "",
+        "card14Badge": "",
+        "card14Url": "",
+        "card15Image": "",
+        "card15Title": "",
+        "card15Meta": "",
+        "card15Badge": "",
+        "card15Url": "",
+        "card16Image": "",
+        "card16Title": "",
+        "card16Meta": "",
+        "card16Badge": "",
+        "card16Url": ""
       }
     },
     {

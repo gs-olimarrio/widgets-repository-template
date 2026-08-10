@@ -13,7 +13,7 @@ export async function init(sdk) {
     var limit = cols * maxRows;
 
     var cards = [];
-    for (var n = 1; n <= 8; n++) {
+    for (var n = 1; n <= 16; n++) {
       var title = props['card' + n + 'Title'];
       if (!title) continue;
       cards.push({
