@@ -4,7 +4,7 @@
     {
       "name": "greeting-widget",
       "runtimeExecutable": "/usr/bin/python3",
-      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "widgets/my_first_widget_greeting"],
+      "runtimeArgs": ["-m", "http.server", "3456", "--directory", "widgets/video-library"],
       "port": 3456
     }
   ]
