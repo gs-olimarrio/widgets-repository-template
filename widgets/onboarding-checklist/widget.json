@@ -13,20 +13,20 @@
         "name": "eyebrowLabel",
         "type": "text",
         "label": "Eyebrow Label",
-        "defaultValue": "AAN DE SLAG"
+        "defaultValue": "GET STARTED"
       },
       {
         "name": "heading",
         "type": "text",
         "label": "Heading",
-        "defaultValue": "Welkom! Laten we beginnen",
+        "defaultValue": "Welcome! Let's get you started",
         "rules": { "required": true }
       },
       {
         "name": "subheading",
         "type": "text",
         "label": "Subheading",
-        "defaultValue": "Drie snelle stappen om je weg te vinden, mensen te ontmoeten en erkend te worden."
+        "defaultValue": "Three quick steps to find your way, meet people and get recognised."
       },
       {
         "name": "accentColor",
@@ -61,9 +61,9 @@
     ]
   },
   "defaultConfig": {
-    "eyebrowLabel": "AAN DE SLAG",
-    "heading": "Welkom! Laten we beginnen",
-    "subheading": "Drie snelle stappen om je weg te vinden, mensen te ontmoeten en erkend te worden.",
+    "eyebrowLabel": "GET STARTED",
+    "heading": "Welcome! Let's get you started",
+    "subheading": "Three quick steps to find your way, meet people and get recognised.",
     "accentColor": "#E60000",
     "step1Url": "",
     "step2Url": "",

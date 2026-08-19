@@ -96,7 +96,7 @@ export async function init(sdk) {
         if (isAuto) {
           mark.style.display = 'none';
         } else {
-          mark.textContent = done.indexOf(n) > -1 ? '✓ Klaar' : '+ Markeer als klaar';
+          mark.textContent = done.indexOf(n) > -1 ? '✓ Done' : '+ Mark as done';
         }
       }
     });
@@ -104,7 +104,7 @@ export async function init(sdk) {
     var fill = sdk.$('#progress-fill');
     var label = sdk.$('#progress-label');
     if (fill) fill.style.width = (count / 3 * 100) + '%';
-    if (label) label.textContent = count + ' van 3 klaar';
+    if (label) label.textContent = count + ' of 3 done';
 
     var isComplete = count === 3;
     var banner = sdk.$('#completion-banner');
